@@ -1,23 +1,12 @@
 // Subclasse que estende a classe nativa Array
 class ListaOrdenada extends Array {
-  
-  // Sobrescreve o método push
-  // Utilizamos o operador rest (...itens) pois o push pode receber múltiplos argumentos
-  push(...itens) {
-    // 1. Chama o método push original da classe Array usando super
+    push(...itens) {
     super.push(...itens);
-
-    // 2. Ordena o array automaticamente após a inserção
-    // Obs: A função (a, b) => a - b garante que os números sejam ordenados corretamente
-    // do menor para o maior. Se fosse texto, apenas this.sort() bastaria.
     this.sort((a, b) => a - b);
-
-    // 3. O método push nativo sempre retorna o novo tamanho do array
     return this.length;
   }
 }
 
-// --- Testando a implementação ---
 
 const minhaLista = new ListaOrdenada();
 
